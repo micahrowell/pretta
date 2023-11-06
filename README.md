@@ -24,3 +24,5 @@ To run this program against another input, simply place the JSON data into anoth
 For the `handleList()` function, the original instructions specified that the `NULL`, `L`, and `M` data types would not be present inside of a list. Therefore, they are not accounted for inside `handleList()`.
 
 In the `processKeyValue()` function, a cached regular expression map is used to check the key. This is because compiling regular expressions can be expensive depending on the complexity but matching them can be much more efficient than traditional string matching. Therefore the regular expressions are compiled once then used multiple times to match strings. One key advantage of going this route is we can guarantee we are only considering well formed keys of any variety. Otherwise we would have to use some wonky logic.
+
+The runtime of this program on my local machine is 350.292µs.
