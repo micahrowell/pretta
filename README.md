@@ -14,6 +14,9 @@ To run this program using go's `run` feature simply type `go run main.go` in the
 ### Build the Binary
 To run this program via a binary you will first need to build the binary. You can do that by running `go build -o` followed by whatever you want to name the binary. For example, `go build -o jsonConverter` will create a binary called `jsonConverter`. To run that binary type `./jsonConverter`. You will also need to supply an input file which is covered in the [input section](#Input).
 
+### Replit
+You can import the project into Replit with this link: https://github.com/micahrowell/pretta. Once imported you can use the same [go run](#go-run) command. You will also need to supply an input file which is covered in the [input section](#Input).
+
 ### Input
 An example input file is provided in this repo named `input.json`. To use it, supply the file name as a command line argument. Here are two examples for using both `go run` and a binary.
 `go run main.go input.json`
