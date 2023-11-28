@@ -31,7 +31,7 @@ func main() {
 		strData = strings.ReplaceAll(strData, " ", "")
 		bytes = []byte(strData)
 
-		var input map[string]map[string]interface{}
+		var input map[string]interface{}
 		if err := json.Unmarshal(bytes, &input); err != nil {
 			log.Fatal(err)
 		}
@@ -64,14 +64,17 @@ func readFile(path string) []byte {
 	return bytes
 }
 
-func convertJSON(input map[string]map[string]interface{}) []map[string]interface{} {
+func convertJSON(input map[string]interface{}) []map[string]interface{} {
 	var output []map[string]interface{}
 
 	result := map[string]interface{}{}
 	for k, v := range input {
-		res := processKeyValue(k, v)
-		for k1, v1 := range res {
-			result[k1] = v1
+		val, ok := v.(map[string]interface{})
+		if ok {
+			res := processKeyValue(k, val)
+			for k1, v1 := range res {
+				result[k1] = v1
+			}
 		}
 	}
 
